@@ -1,5 +1,5 @@
 # User-specific stuff
-.idea/
+# .idea/
 
 *.iml
 *.ipr
@@ -18,7 +18,7 @@ out/
 *.ctxt
 
 # Package Files #
-*.jar
+# *.jar
 *.war
 *.nar
 *.ear

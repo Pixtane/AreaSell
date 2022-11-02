@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Test1:jar">
+    <output-path>D:/minecraft/Paper/plugins</output-path>
+    <root id="archive" name="Test1.jar">
+      <element id="module-output" name="Test1" />
+    </root>
+  </artifact>
+</component>
