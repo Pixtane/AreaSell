@@ -1,0 +1,13 @@
+name: GyGgYg
+version: '${project.version}'
+main: org.gog.gyggyg.GyGgYg
+api-version: 1.19
+commands:
+  selectall:
+    description: An example command
+    permission: gyggyg.example
+    usage: /<command>
+  viewbalance:
+    description: An example command
+    permission: gyggyg.example
+    usage: /<command>
