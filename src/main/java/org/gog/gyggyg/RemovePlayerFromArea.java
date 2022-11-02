@@ -18,7 +18,7 @@ public class RemovePlayerFromArea {
         stmt = connection.createStatement();
         String query = "UPDATE queue SET isDone = 1 WHERE taskId = " + task_id;
         stmt.execute(query);
-
+        //first comment from vsevolod
         String nickname = resultSet.getString("nickname");
         String id = resultSet.getString("id");
         String area_type = resultSet.getString("type");
