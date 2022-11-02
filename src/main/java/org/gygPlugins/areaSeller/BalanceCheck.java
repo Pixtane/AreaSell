@@ -1,9 +1,8 @@
-package org.gog.gyggyg;
+package org.gygPlugins.areaSeller;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Player;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,10 +11,10 @@ import java.sql.Statement;
 
 
 public class BalanceCheck implements CommandExecutor {
-    GyGgYg plugin;
+    areaSeller plugin;
     FileConfiguration config;
 
-    public BalanceCheck(GyGgYg plugin, FileConfiguration config) {
+    public BalanceCheck(areaSeller plugin, FileConfiguration config) {
         this.plugin = plugin;
         this.config = config;
     }

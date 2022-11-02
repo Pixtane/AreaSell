@@ -1,8 +1,7 @@
-package org.gog.gyggyg;
+package org.gygPlugins.areaSeller;
 
 //region Imports
 // BUKKIT
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -18,7 +17,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 // endregion
 
-public final class GyGgYg extends JavaPlugin {
+public final class areaSeller extends JavaPlugin {
     FileConfiguration config = getConfig();
 
     @Override

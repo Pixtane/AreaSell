@@ -1,4 +1,4 @@
-package org.gog.gyggyg;
+package org.gygPlugins.areaSeller;
 //region Imports
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -8,9 +8,9 @@ import java.sql.*;
 
 public class RemovePlayerFromArea {
     private Statement stmt = null;
-    GyGgYg plugin;
+    areaSeller plugin;
 
-    public void RemovePlayerFromArea(GyGgYg plugin, ResultSet resultSet, FileConfiguration config) throws SQLException {
+    public void RemovePlayerFromArea(areaSeller plugin, ResultSet resultSet, FileConfiguration config) throws SQLException {
         String task_id = resultSet.getString("taskId");
 
         Connection connection = DriverManager.getConnection(config.getString("messenger_with_plugin_SQL"), "root", "");
