@@ -1,13 +1,14 @@
-name: GyGgYg
+name: areaSeller
 version: '${project.version}'
-main: org.gog.gyggyg.GyGgYg
+main: org.gygPlugins.areaSeller.areaSeller
 api-version: 1.19
+author: gygPlugins
+website: pixtane.github.io
+prefix: AreaSeller
 commands:
   selectall:
     description: An example command
-    permission: gyggyg.example
     usage: /<command>
   viewbalance:
     description: An example command
-    permission: gyggyg.example
     usage: /<command>
