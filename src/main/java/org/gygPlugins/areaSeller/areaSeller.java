@@ -6,31 +6,33 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 // SQL
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 // TIME
+import java.util.Objects;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 // endregion
 
 public final class areaSeller extends JavaPlugin {
+
     FileConfiguration config = getConfig();
+    public Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(Objects.requireNonNull(config.getString("messenger_with_plugin_SQL")), "root", "");
+    }
+
 
     @Override
     public void onEnable() {
-        // region Config.yml data
         config.addDefault("database", "jdbc:mysql://localhost:3306/horaj");
         config.addDefault("messenger_with_plugin_SQL", "jdbc:mysql://localhost:3306/messenger");
         config.options().copyDefaults(true);
         saveConfig();
         // endregion
         // region commands
-        getCommand("selectall").setExecutor(new SelectCommand(this, config));
-        getCommand("viewbalance").setExecutor(new BalanceCheck(this, config));
+        Objects.requireNonNull(getCommand("selectall")).setExecutor(new SelectCommand(this, config));
+        Objects.requireNonNull(getCommand("viewbalance")).setExecutor(new BalanceCheck(this, config));
         //endregion
         // region comments
         // Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "ban " + commandSender.getName() + " Automatic Console Ban!")
@@ -39,14 +41,12 @@ public final class areaSeller extends JavaPlugin {
         // region SQL messenger timer
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
         executor.scheduleAtFixedRate(this::checkMessengerSQL, 0, 3, TimeUnit.SECONDS);
-        //endregion
     }
 
     public void checkMessengerSQL() {
         try {
             // region connection to MySQL
-            Connection connection = DriverManager.getConnection(config.getString("messenger_with_plugin_SQL"), "root", "");
-            Statement statement = connection.createStatement();
+            Statement statement = getConnection().createStatement();
             ResultSet resultSet = statement.executeQuery("select * from queue");
             //endregion
             // region actions
@@ -67,9 +67,7 @@ public final class areaSeller extends JavaPlugin {
                 }
             }
             //endregion
-            if (!connection.isClosed()) {
-                connection.close();
-            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -77,6 +75,14 @@ public final class areaSeller extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+            try {
+                Connection connection = getConnection();
+                if (!connection.isClosed()) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
-}
+
