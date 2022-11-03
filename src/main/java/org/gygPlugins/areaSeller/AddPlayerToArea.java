@@ -1,6 +1,7 @@
 package org.gygPlugins.areaSeller;
 
 //region Imports
+
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 
@@ -8,8 +9,8 @@ import java.sql.*;
 //endregion
 
 public class AddPlayerToArea {
-    private Statement stmt = null;
     areaSeller plugin;
+    private Statement stmt = null;
 
     public void AddPlayerToArea(areaSeller plugin, ResultSet resultSet, FileConfiguration config) throws SQLException {
         String task_id = resultSet.getString("taskId");
