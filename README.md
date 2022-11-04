@@ -5,7 +5,7 @@
 
 <b>1.19 Paper</b> minecraft plugin for selling areas (WorldGuard) using messenger (MySQL) with website.
 
-To install you can follow the instruction below and build it by yourself, or use compiled by github. When you installed it to the plugins folder, you will need to change the <b>config.yml</b> to your database. Currently, you better to have two separete databases - first is to contain areas - their accessibility to sell and their price, and second for messenging with MySQL and plugin. You could make these in one, but we didn't tested it yet.
+To download the plugin you can follow the instruction at the bottom and build it by yourself, or use compiled by github. When you installed it to the plugins folder, you will need to change the <b>config.yml</b> to your database. Currently, you better to have two separete databases - first is to contain areas - their accessibility to sell and their price, and second for messenging with MySQL and plugin. You could make these in one, but we didn't tested it yet.
 For the plugin you need some dependencies:
 - xconomy
 - worldedit
