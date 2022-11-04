@@ -65,6 +65,11 @@ public final class areaSeller extends JavaPlugin {
                             addmoney.AddMoney(this, resultSet, config);
                             break;
                         }
+                        case "REMOVEMONEY": {
+                            RemoveMoney removemoney = new RemoveMoney();
+                            removemoney.RemoveMoney(this, resultSet, config);
+                            break;
+                        }
                     }
                 }
             }

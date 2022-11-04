@@ -5,10 +5,10 @@ import org.bukkit.configuration.file.FileConfiguration;
 import java.sql.*;
 import java.util.Objects;
 
-public class AddMoney {
+public class RemoveMoney {
     areaSeller plugin;
 
-    public void AddMoney(areaSeller plugin, ResultSet resultSet, FileConfiguration config) throws SQLException {
+    public void RemoveMoney(areaSeller plugin, ResultSet resultSet, FileConfiguration config) throws SQLException {
         this.plugin = plugin;
 
         String task_id = resultSet.getString("taskId");
@@ -30,7 +30,7 @@ public class AddMoney {
         ResultSet resultSet2 = stmt.executeQuery("select * from xconomy");
         while (resultSet2.next()) {
             if (resultSet2.getString("player").equals(nickname)) {
-                query = "UPDATE xconomy SET balance = " + (money + resultSet2.getInt("balance")) + " WHERE player = \"" + nickname + "\"";
+                query = "UPDATE xconomy SET balance = " + (resultSet2.getInt("balance") - money) + " WHERE player = \"" + nickname + "\"";
                 stmt.execute(query);
                 break;
             }
