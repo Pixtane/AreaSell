@@ -1,4 +1,5 @@
 package org.gygPlugins.areaSeller;
+
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -45,7 +46,7 @@ public class BalanceCheck implements CommandExecutor {
             }
             //sender.sendMessage(result);
 
-            if (!connection.isClosed()){ // checking if connection isn't null to
+            if (!connection.isClosed()) { // checking if connection isn't null to
                 // avoid receiving a nullpointer
                 connection.close(); // closing the connection field variable.
             }
