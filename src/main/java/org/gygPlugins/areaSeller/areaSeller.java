@@ -88,3 +88,14 @@ public final class areaSeller extends JavaPlugin {
     }
 }
 
+/*
+ TODO   Commands
+        REVOKE - delete member ✅
+        ADD    - add member    ✅
+        CLEAR  - delete everything in region
+        MESSEGE- messege to the everyone in region
+        REMOVEMONEY - delete money from player ✅
+        ADDMONEY - add money to player ✅
+        TRANSFERMONEY - delete money from one player and add them to another.
+        Chest interface
+*/
