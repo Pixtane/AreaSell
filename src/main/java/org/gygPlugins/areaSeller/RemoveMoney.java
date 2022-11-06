@@ -36,7 +36,7 @@ public class RemoveMoney {
             }
         }
         if (!connection2.isClosed()) {
-            connection.close();
+            connection2.close();
         }
     }
 }

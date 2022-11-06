@@ -88,6 +88,11 @@ public final class areaSeller extends JavaPlugin {
                             clearegion.clear(this, resultSet, config);
                             break;
                         }
+                        case "TRANSFERMONEY": {
+                            TransferMoney transfer = new TransferMoney();
+                            transfer.transferMoney(resultSet, config);
+                            break;
+                        }
                     }
                 }
             }
