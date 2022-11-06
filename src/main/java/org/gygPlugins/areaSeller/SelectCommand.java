@@ -44,9 +44,8 @@ public class SelectCommand implements CommandExecutor {
             }
             sender.sendMessage(result);
 
-            if (!connection.isClosed()){ // checking if connection isn't null to
-                // avoid receiving a nullpointer
-                connection.close(); // closing the connection field variable.
+            if (!connection.isClosed()){
+                connection.close();
             }
         } catch (Exception e) {
             e.printStackTrace();

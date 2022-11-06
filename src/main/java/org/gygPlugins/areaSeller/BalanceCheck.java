@@ -1,6 +1,5 @@
 package org.gygPlugins.areaSeller;
 
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -24,16 +23,13 @@ public class BalanceCheck implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         String cmdName = cmd.getName().toLowerCase();
-        Bukkit.broadcastMessage("33374$");
 
         if (!cmdName.equals("viewbalance")) {
             return false;
         }
 
-        sender.sendMessage("Sukky bakka");
-
         try {
-            Connection connection = DriverManager.getConnection(config.getString("database"), "root", "");
+            Connection connection = DriverManager.getConnection(config.getString("database"), config.getString("admin_name"), config.getString("password"));
             Statement statement = connection.createStatement();
 
             ResultSet resultSet = statement.executeQuery("select * from xconomy");
@@ -44,12 +40,9 @@ public class BalanceCheck implements CommandExecutor {
                 nameOfArea = resultSet.getString("balance");
                 result = result + nameOfArea + '\n';
             }
-            //sender.sendMessage(result);
 
-            if (!connection.isClosed()) { // checking if connection isn't null to
-                // avoid receiving a nullpointer
-                connection.close(); // closing the connection field variable.
-            }
+            if (!connection.isClosed()) connection.close();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
